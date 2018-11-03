@@ -1,7 +1,7 @@
 import setuptools
 
 LICENSE = "License :: OSI Approved :: Apache Software License"
-VERSION = "0.1.0"
+VERSION = "0.0.1"
 setuptools.setup(
     name='cctrans',
     version=VERSION,
