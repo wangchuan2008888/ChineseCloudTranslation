@@ -43,8 +43,5 @@ def set_trans_cloud(cloud):
 
 def translate(text):
     global mode
-    if mode == 'youdao':
-        from cctrans.core.youdao import translation
-    else:
-        return None
-    return translation(text)
+    from cctrans.core.baidu import translation
+    return translation(text, mode)
