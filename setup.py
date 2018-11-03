@@ -12,6 +12,9 @@ setuptools.setup(
     install_requires=["six",
                       "requests",
                       "importlib_resources"],
+    package_data={
+        'cctrans': ['configure.ini'],
+    },
     url='https://github.com/wangchuan2008888/ChineseCloudTranslation',
     packages=setuptools.find_packages(),
     classifiers=['Topic :: Text Processing :: Linguistic',
