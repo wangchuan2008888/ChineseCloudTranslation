@@ -1,7 +1,8 @@
 import cctrans
 
-cctrans.conf.youdao_app_id = '50448a43d85cad93'
-cctrans.conf.youdao_secret_key = '4ahJuOnkr5Q7JX74juY0UaeX6CRLnrJF'
+cctrans.conf.youdao_app_id = ''
+cctrans.conf.youdao_secret_key = ''
 cctrans.set_trans_cloud('youdao')
-text = "我爱北京天安门"
+text = "我想去奥森吃饭，可是我不知道怎么过去"
 print(cctrans.translate(text))
+

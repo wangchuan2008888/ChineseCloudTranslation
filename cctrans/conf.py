@@ -8,3 +8,8 @@ with path("cctrans", 'configure.ini') as p:
 
 youdao_app_id = conf.get('youdao', 'app_id')
 youdao_secret_key = conf.get('youdao', 'token')
+
+
+baidu_app_id = conf.get('baidu', 'appid')
+baidu_secret_key = conf.get('baidu', 'secret_key')
+
