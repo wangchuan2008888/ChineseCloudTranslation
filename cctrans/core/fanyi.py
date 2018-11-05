@@ -5,20 +5,15 @@ import requests
 from cctrans import conf
 import cctrans
 
-# url = 'https://openapi.youdao.com/api'
-url = 'http://api.fanyi.baidu.com/api/trans/vip/translate'
 
 def _sign(app_key, secret_key, text):
     salt = random.randint(1, 65536)
-    # salt = random.randint(32768, 65536)
     sign = app_key + text + str(salt) + secret_key
-
     return hashlib.md5(sign.encode('utf8')).hexdigest(), salt
 
 
 def _request_data(url, app_key, text, salt, sign, who, from_lang='en', to_lang='zh'):
     """
-
     :rtype: object
     """
     if who == 'youdao':
@@ -31,7 +26,7 @@ def _request_data(url, app_key, text, salt, sign, who, from_lang='en', to_lang='
         )
 
 
-def translation(text, who):
+def translation(text, who, url):
     if who == 'youdao':
         app_key = conf.youdao_app_id
         secret_key = conf.youdao_secret_key
@@ -53,7 +48,10 @@ def translation(text, who):
             return resp['translation']
         else:
             return None
-    else:
-        trans_result = resp['trans_result']
-        trans_result = [trans_content['dst'] for trans_content in trans_result]
-        return trans_result
+    elif who == 'baidu':
+        if resp.get('trans_result'):
+            trans_result = resp['trans_result']
+            trans_result = [trans_content['dst'] for trans_content in trans_result]
+            return trans_result
+        else:
+            return None
