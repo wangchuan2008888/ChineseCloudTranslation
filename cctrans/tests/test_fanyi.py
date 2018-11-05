@@ -19,5 +19,5 @@ class TestYoudao(unittest.TestCase):
         cctrans.set_url_sever('https://fanyi-api.baidu.com/api/trans/vip/translate')
         cctrans.conf.baidu_app_id = ''
         cctrans.conf.baidu_secret_key = ''
-        text = """我爱北京天安门"""
+        text = """生而为人，难免一死"""
         print(translate(text))

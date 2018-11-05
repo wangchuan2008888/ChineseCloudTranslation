@@ -1,5 +1,4 @@
 from . import conf
-from cctrans.core.fanyi import translation
 
 from_lang = 'zh-CHS'
 to_lang = 'en'
@@ -83,4 +82,9 @@ def set_url_sever(req_url):
 def translate(text):
     global mode
     global url
-    return translation(text, mode, url)
+    if mode == 'youdao':
+        from cctrans.core.youdao import translation
+        return translation(text)
+    else:
+        from cctrans.core.baidu import translation
+        return translation(text, url)
